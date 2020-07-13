@@ -3,6 +3,7 @@ import { stationList } from './station-list.const';
 import { Message } from './message';
 
 import { bookData } from './book-data.const';
+import { Book } from "./book";
 
 @Component({
   selector: 'app-root',
@@ -10,14 +11,29 @@ import { bookData } from './book-data.const';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  bookData = bookData;
+  bookData: Book[] = bookData;
+  maxBookId: number;
+  bookName: string;
+  bookCategory: string;
+  bookAuthor: string;
 
+  addBook(): void {
+    // 找BookId的最大值
+    this.maxBookId = Math.max(...bookData.map(item => item.BookId));
+
+    let addBookData = new Book();
+    addBookData.BookId = this.maxBookId + 1;
+    addBookData.BookName = this.bookName;
+    addBookData.BookCategory = this.bookCategory;
+    addBookData.BookAuthor = this.bookAuthor;
+    this.bookData.push(addBookData);
+  }
   /*
   // 宣告 元件的data資料
   list = stationList;
   name = '';
   content = '';
-
+｀
   data: string[];
 
  // xxx: Message[] = [];
