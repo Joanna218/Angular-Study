@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { stationList } from './station-list.const';
-import { Message } from "./message";
+import { Message } from './message';
+
+import { bookData } from './book-data.const';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,9 @@ import { Message } from "./message";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  bookData = bookData;
+
+  /*
   // 宣告 元件的data資料
   list = stationList;
   name = '';
@@ -32,6 +37,6 @@ export class AppComponent {
     this.data.push(this.name);
     // 清空內容
     this.content = '';
-
   }
+  */
 }

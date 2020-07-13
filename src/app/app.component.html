@@ -1,4 +1,43 @@
-<table>
+<div id="wrapper">
+  <form id="bookSearchForm">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">書籍編號</th>
+        <th scope="col">書籍名稱</th>
+        <th scope="col">書籍類別</th>
+        <th scope="col">作者</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of bookData">
+        <th scope="row">{{ book.BookId}}</th>
+        <td>{{ book.BookName }}</td>
+        <td>{{ book.BookCategory }}</td>
+        <td>{{ book.BookAuthor }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- <table>
   <thead>
     <tr>
       <th></th>
@@ -9,7 +48,7 @@
   </thead>
   <tbody>
     <tr *ngFor = "let item of list; index as idx">
-    <!-- <tr *ngFor = "let item of list; let idx = index"></tr> -->
+    <tr *ngFor = "let item of list; let idx = index"></tr>
       <td>{{ idx + 1 }}</td>
       <td>{{ item.Station }}</td>
       <td>{{ item.Destination }}</td>
@@ -45,4 +84,4 @@
     時間：{{ message.date | date: 'yyyy/MM/dd HH:mm:ss' }}
   </p>
 
-</ng-container>
+</ng-container> -->
