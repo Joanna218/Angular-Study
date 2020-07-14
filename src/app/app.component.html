@@ -24,6 +24,7 @@
         <th scope="col">書籍名稱</th>
         <th scope="col">書籍類別</th>
         <th scope="col">作者</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -32,6 +33,7 @@
         <td>{{ book.BookName }}</td>
         <td>{{ book.BookCategory }}</td>
         <td>{{ book.BookAuthor }}</td>
+        <td><button id="{{ book.BookId }}" type="button" class="btn btn-primary" (click)="deleteBook($event.target)">刪除</button></td>
       </tr>
     </tbody>
   </table>

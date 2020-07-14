@@ -28,6 +28,14 @@ export class AppComponent {
     addBookData.BookAuthor = this.bookAuthor;
     this.bookData.push(addBookData);
   }
+
+  deleteBook(e: HTMLInputElement): void {
+    if (confirm("確定要刪除嗎?")) {
+      let deleteBookData= this.bookData.find(item => item.BookId === parseInt(e.id, 10));
+      let deleteBookDataIdx = this.bookData.indexOf(deleteBookData);
+      this.bookData.splice(deleteBookDataIdx, 1);
+    }
+  }
   /*
   // 宣告 元件的data資料
   list = stationList;
