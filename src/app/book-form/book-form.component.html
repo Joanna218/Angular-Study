@@ -15,7 +15,7 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-<table class="table">
+<table class="table" *ngIf="getBookList().length">
   <thead>
     <tr>
       <th scope="col">書籍編號</th>
@@ -26,12 +26,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let book of bookData">
+    <tr *ngFor="let book of getBookList(); let idx = index;">
       <th scope="row">{{ book.BookId}}</th>
       <td>{{ book.BookName }}</td>
       <td>{{ book.BookCategory }}</td>
       <td>{{ book.BookAuthor }}</td>
-      <td><button id="{{ book.BookId }}" type="button" class="btn btn-primary" (click)="deleteBook($event.target)">刪除</button></td>
+      <td><button id="{{ book.BookId }}" type="button" class="btn btn-primary" (click)="deleteBook(idx)">刪除</button></td>
     </tr>
   </tbody>
 </table>
