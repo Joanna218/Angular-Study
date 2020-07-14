@@ -1,23 +1,6 @@
 <div id="wrapper">
-  <form id="bookSearchForm" (ngSubmit)="addBook()">
-    <div class="form-group">
-      <label for="bookName">書籍名稱</label>
-      <input type="text" class="form-control" id="bookName" aria-describedby="emailHelp" name="bookName" [(ngModel)]="bookName">
-      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-    </div>
-    <div class="form-group">
-      <label for="bookCategory">書籍類別</label>
-      <input type="text" class="form-control" id="bookCategory" name="bookCategory" [(ngModel)]="bookCategory">
-    </div>
-    <div class="form-group">
-      <label for="bookAuthor">書籍作者</label>
-      <input type="text" class="form-control" id="bookAuthor" name="bookAuthor" [(ngModel)]="bookAuthor">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-
-
-  <table class="table">
+  <app-book-form></app-book-form>
+  <!-- <table class="table">
     <thead>
       <tr>
         <th scope="col">書籍編號</th>
@@ -36,7 +19,7 @@
         <td><button id="{{ book.BookId }}" type="button" class="btn btn-primary" (click)="deleteBook($event.target)">刪除</button></td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
 </div>
 
 <!-- <table>
