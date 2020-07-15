@@ -10,6 +10,6 @@ export class Book {
     this.BookId = bookId;
     this.BookName = bookName;
     this.BookCategory = bookCategory;
-    this.BookAuthor = this.BookAuthor;
+    this.BookAuthor = bookAuthor;
   }
 }

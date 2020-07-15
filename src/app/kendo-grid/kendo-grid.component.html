@@ -1,24 +1,22 @@
 <form class="k-form" (ngSubmit)="addBook()">
   <fieldset>
       <legend>新增書籍</legend>
-      <label class="k-form-field">
-          <span>書籍名稱</span>
-          <input class="k-textbox" placeholder="書籍名稱..." name="bookName" [(ngModel)]="bookName"/>
-      </label>
-      <label class="k-form-field">
-          <span>書籍種類</span>
-          <input class="k-textbox" placeholder="書籍種類..." name="bookCategory" [(ngModel)]="bookCategory"/>
-      </label>
+      <img src="../../assets/image/{{selectedItem.value}}.jpg" alt="" width="300" height="200">
       <label class="k-form-field">
         <span>書籍種類</span>
-        <kendo-dropdownlist
+        <kendo-dropdownlist name="selectedItem"
           [data]="bookCategoryItems"
           textField="text"
           valueField="value"
           [(ngModel)]="selectedItem"
+          (selectionChange)="selectionChange($event)"
         >
         </kendo-dropdownlist>
-    </label>
+      </label>
+      <label class="k-form-field">
+          <span>書籍名稱</span>
+          <input class="k-textbox" placeholder="書籍名稱..." name="bookName" [(ngModel)]="bookName"/>
+      </label>
       <label class="k-form-field">
         <span>書籍作者</span>
         <input class="k-textbox" placeholder="書籍作者..." name="bookAuthor" [(ngModel)]="bookAuthor"/>

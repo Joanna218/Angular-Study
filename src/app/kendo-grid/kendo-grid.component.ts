@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { bookData } from "../book-data.const";
 
 // model
 import { Book } from './book.model';
@@ -36,12 +35,18 @@ export class KendoGridComponent implements OnInit {
 
   // dropDown
   public bookCategoryItems: Array<dropDown> = [
-    { text: "資料庫", value: "DB" },
-    { text: "網際網路", value: "IT" },
-    { text: "家庭保健", value: "HL" }
+    { text: "資料庫", value: "database" },
+    { text: "網際網路", value: "internet" },
+    { text: "家庭保健", value: "home" },
+    { text: "應用系統整合", value: "system" },
+    { text: "語言", value: "language" }
   ];
 
-  public selectedItem: dropDown = this.bookCategoryItems[1];
+  public selectedItem: dropDown = this.bookCategoryItems[0];
+
+  public selectionChange(data: any): void {
+    this.bookCategory = data.text;
+  }
 
   public gridData: any[] = this.kendoGridService.initData();
 
@@ -51,6 +56,7 @@ export class KendoGridComponent implements OnInit {
   bookAuthor: string;
 
   addBook(): void {
+    debugger;
     const newBookId = this.kendoGridService.getMaxBookId() + 1;
     this.kendoGridService.setMaxBookId(newBookId);
     const addBook = new Book(newBookId, this.bookName, this.bookCategory, this.bookAuthor);
