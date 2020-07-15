@@ -3,6 +3,8 @@ import { bookData } from "../book-data.const";
 
 import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 
+
+
 @Component({
   selector: 'app-kendo-grid',
   templateUrl: './kendo-grid.component.html',
@@ -30,11 +32,21 @@ export class KendoGridComponent implements OnInit {
     this.loadItems();
   }
 
+  // 重新讀取分頁資料
   private loadItems(): void {
       this.gridView = {
           data: this.gridData.slice(this.skip, this.skip + this.pageSize),
           total: this.gridData.length
       };
+  }
+
+  public removeHandler(deleteData: any): void {
+    // 找到該筆資料的index
+    const deleteDataItemIdx = this.gridData.indexOf(deleteData.dataItem);
+    // 刪除該筆資料
+    this.gridData.splice(deleteDataItemIdx, 1);
+    // gridView reload
+    this.loadItems();
   }
 }
 

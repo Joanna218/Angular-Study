@@ -5,6 +5,7 @@
   [pageable]="true"
   [sortable]="true"
   (pageChange)="pageChange($event)"
+  (remove)="removeHandler($event)"
   >
   <kendo-grid-column field="BookId" title="書籍編號" width="10%" filter="numeric">
   </kendo-grid-column>
