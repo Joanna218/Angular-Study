@@ -1,1 +1,18 @@
-<kendo-grid [data]="gridData"></kendo-grid>
+<kendo-grid
+  [data]="gridView"
+  [pageSize]="pageSize"
+  [skip]="skip"
+  [pageable]="true"
+  [sortable]="true"
+  (pageChange)="pageChange($event)"
+  >
+  <kendo-grid-column field="BookId" title="書籍編號" width="10%" filter="numeric">
+  </kendo-grid-column>
+  <kendo-grid-column field="BookName" title="書籍名稱" width="55%">
+  </kendo-grid-column>
+  <kendo-grid-column field="BookCategory" title="書籍種類" width="15%">
+  </kendo-grid-column>
+  <kendo-grid-column field="BookAuthor" title="書籍作者" width="20%">
+  </kendo-grid-column>
+
+</kendo-grid>
