@@ -8,11 +8,17 @@
   >
   <kendo-grid-column field="BookId" title="書籍編號" width="10%" filter="numeric">
   </kendo-grid-column>
-  <kendo-grid-column field="BookName" title="書籍名稱" width="55%">
+  <kendo-grid-column field="BookName" title="書籍名稱" width="45%">
   </kendo-grid-column>
   <kendo-grid-column field="BookCategory" title="書籍種類" width="15%">
   </kendo-grid-column>
   <kendo-grid-column field="BookAuthor" title="書籍作者" width="20%">
   </kendo-grid-column>
+  <kendo-grid-command-column title="" width="15%">
+    <ng-template kendoGridCellTemplate>
+        <button kendoGridEditCommand class="k-primary">修改</button>
+        <button kendoGridRemoveCommand>刪除</button>
+    </ng-template>
+</kendo-grid-command-column>
 
 </kendo-grid>
