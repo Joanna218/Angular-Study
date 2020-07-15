@@ -1,3 +1,25 @@
+<form class="k-form">
+  <fieldset>
+      <legend>新增書籍</legend>
+      <label class="k-form-field">
+          <span>書籍名稱</span>
+          <input class="k-textbox" placeholder="書籍名稱..." />
+      </label>
+      <label class="k-form-field">
+          <span>書籍種類</span>
+          <input class="k-textbox" placeholder="書籍種類..." />
+      </label>
+      <label class="k-form-field">
+        <span>書籍作者</span>
+        <input class="k-textbox" placeholder="書籍作者..." />
+    </label>
+  </fieldset>
+
+  <div class="text-right">
+      <button type="button" class="k-button" >Cancel</button>
+      <button type="button" class="k-button k-primary">Submit</button>
+  </div>
+</form>
 <kendo-grid
   [data]="gridView"
   [pageSize]="pageSize"

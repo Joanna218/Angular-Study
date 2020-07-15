@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { bookData } from "../book-data.const";
 
+// model
+import { Book } from './book.model';
+// service
+import { KendoGridService } from './kendo-grid.service';
 import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 
 
@@ -18,7 +22,7 @@ export class KendoGridComponent implements OnInit {
   public skip = 0;
   private data: Object[];
 
-  constructor() {
+  constructor(private kendoGridService: KendoGridService) {
     this.loadItems();
    }
 
