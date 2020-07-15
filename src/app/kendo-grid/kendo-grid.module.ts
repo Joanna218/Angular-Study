@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { KendoGridComponent } from './kendo-grid.component';
 import { GridModule } from '@progress/kendo-angular-grid';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -9,7 +10,8 @@ import { GridModule } from '@progress/kendo-angular-grid';
   declarations: [KendoGridComponent],
   imports: [
     CommonModule,
-    GridModule
+    GridModule,
+    FormsModule
   ],
   exports: [KendoGridComponent]
 })

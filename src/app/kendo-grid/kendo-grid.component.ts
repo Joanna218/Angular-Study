@@ -29,8 +29,30 @@ export class KendoGridComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public gridData: any[] = bookGidData;
+  public gridData: any[] = this.kendoGridService.initData();
 
+  // form
+  bookName: string;
+  bookCategory: string;
+  bookAuthor: string;
+
+  addBook(): void {
+    const newBookId = this.kendoGridService.getMaxBookId() + 1;
+    this.kendoGridService.setMaxBookId(newBookId);
+    const addBook = new Book(newBookId, this.bookName, this.bookCategory, this.bookAuthor);
+    this.kendoGridService.add(addBook);
+    this.loadItems();
+  }
+
+  getBookList(): Book[] {
+    return this.kendoGridService.getBookList();
+  }
+
+  deleteBook(idx: number): void {
+    this.kendoGridService.deleteBook(idx);
+  }
+
+  // grid Component
   public pageChange(event: PageChangeEvent): void {
     this.skip = event.skip;
     this.loadItems();
@@ -54,4 +76,4 @@ export class KendoGridComponent implements OnInit {
   }
 }
 
-const bookGidData = bookData;
+// const bookGidData = bookData;

@@ -1,26 +1,27 @@
-<form class="k-form">
+<form class="k-form" (ngSubmit)="addBook()">
   <fieldset>
       <legend>新增書籍</legend>
       <label class="k-form-field">
           <span>書籍名稱</span>
-          <input class="k-textbox" placeholder="書籍名稱..." />
+          <input class="k-textbox" placeholder="書籍名稱..." name="bookName" [(ngModel)]="bookName"/>
       </label>
       <label class="k-form-field">
           <span>書籍種類</span>
-          <input class="k-textbox" placeholder="書籍種類..." />
+          <input class="k-textbox" placeholder="書籍種類..." name="bookCategory" [(ngModel)]="bookCategory"/>
       </label>
       <label class="k-form-field">
         <span>書籍作者</span>
-        <input class="k-textbox" placeholder="書籍作者..." />
+        <input class="k-textbox" placeholder="書籍作者..." name="bookAuthor" [(ngModel)]="bookAuthor"/>
     </label>
   </fieldset>
 
   <div class="text-right">
       <button type="button" class="k-button" >Cancel</button>
-      <button type="button" class="k-button k-primary">Submit</button>
+      <button type="submit" class="k-button k-primary">新增書籍</button>
   </div>
 </form>
-<kendo-grid
+
+<kendo-grid *ngIf="getBookList().length"
   [data]="gridView"
   [pageSize]="pageSize"
   [skip]="skip"

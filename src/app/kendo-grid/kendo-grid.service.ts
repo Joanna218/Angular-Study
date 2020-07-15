@@ -14,6 +14,10 @@ export class KendoGridService {
 
   constructor() { }
 
+  initData(): any {
+    return this.bookData;
+  }
+
   // 新增書籍
   add(book: Book): void {
     this.bookData.push(book);
