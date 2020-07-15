@@ -7,6 +7,7 @@ import { BookFormModule } from "./book-form/book-form.module";
 import { BookTableModule } from "./book-table/book-table.module";
 import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { KendoGridModule } from "./kendo-grid/kendo-grid.module";
 
 
 
@@ -19,8 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     BookFormModule,
     BookTableModule,
-    GridModule,
-    BrowserAnimationsModule
+    // GridModule,
+    BrowserAnimationsModule,
+    KendoGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]
