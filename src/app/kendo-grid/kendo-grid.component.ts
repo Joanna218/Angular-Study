@@ -8,6 +8,11 @@ import { KendoGridService } from './kendo-grid.service';
 import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 
 
+interface dropDown {
+  text: string,
+  value: string
+}
+
 
 @Component({
   selector: 'app-kendo-grid',
@@ -28,6 +33,15 @@ export class KendoGridComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  // dropDown
+  public bookCategoryItems: Array<dropDown> = [
+    { text: "資料庫", value: "DB" },
+    { text: "網際網路", value: "IT" },
+    { text: "家庭保健", value: "HL" }
+  ];
+
+  public selectedItem: dropDown = this.bookCategoryItems[1];
 
   public gridData: any[] = this.kendoGridService.initData();
 

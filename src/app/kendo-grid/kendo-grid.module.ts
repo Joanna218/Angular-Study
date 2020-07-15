@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { KendoGridComponent } from './kendo-grid.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { FormsModule } from '@angular/forms';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
 
 
@@ -11,7 +12,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     GridModule,
-    FormsModule
+    FormsModule,
+    DropDownsModule
   ],
   exports: [KendoGridComponent]
 })

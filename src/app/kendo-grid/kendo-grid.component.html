@@ -10,6 +10,16 @@
           <input class="k-textbox" placeholder="書籍種類..." name="bookCategory" [(ngModel)]="bookCategory"/>
       </label>
       <label class="k-form-field">
+        <span>書籍種類</span>
+        <kendo-dropdownlist
+          [data]="bookCategoryItems"
+          textField="text"
+          valueField="value"
+          [(ngModel)]="selectedItem"
+        >
+        </kendo-dropdownlist>
+    </label>
+      <label class="k-form-field">
         <span>書籍作者</span>
         <input class="k-textbox" placeholder="書籍作者..." name="bookAuthor" [(ngModel)]="bookAuthor"/>
     </label>

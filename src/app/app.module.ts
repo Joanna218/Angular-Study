@@ -8,6 +8,8 @@ import { BookTableModule } from "./book-table/book-table.module";
 import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { KendoGridModule } from "./kendo-grid/kendo-grid.module";
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+
 
 
 
@@ -22,7 +24,8 @@ import { KendoGridModule } from "./kendo-grid/kendo-grid.module";
     BookTableModule,
     // GridModule,
     BrowserAnimationsModule,
-    KendoGridModule
+    KendoGridModule,
+    // DropDownsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
