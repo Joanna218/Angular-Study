@@ -101,6 +101,16 @@ export class KendoGridComponent implements OnInit {
     this.loadItems();
   }
 
+  public editHandler(editData: any): void {
+    const editBookData = editData.dataItem;
+    this.bookName = editBookData.BookName;
+    this.bookAuthor = editBookData.BookAuthor;
+    const bookCategoryData = this.bookCategoryItems.filter(item => item.text === editBookData.BookCategory);
+    this.selectedItem = bookCategoryData[0];
+    // this.bookBoughtDate = editBookData.BookBoughtDate;
+    this.open();
+  }
+
   // addBookWindow
   public opened = false;
 

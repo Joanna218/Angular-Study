@@ -45,6 +45,7 @@
   [sortable]="true"
   (pageChange)="pageChange($event)"
   (remove)="removeHandler($event)"
+  (edit)="editHandler($event)"
   >
   <kendo-grid-column field="BookId" title="書籍編號" width="10%" filter="numeric">
   </kendo-grid-column>
@@ -58,7 +59,7 @@
   </kendo-grid-column>
   <kendo-grid-command-column title="" width="15%">
     <ng-template kendoGridCellTemplate>
-        <button kendoGridEditCommand class="k-primary">修改</button>
+        <button kendoGridEditCommand  class="k-primary">修改</button>
         <button kendoGridRemoveCommand>刪除</button>
     </ng-template>
 </kendo-grid-command-column>
