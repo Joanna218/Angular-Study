@@ -98,7 +98,7 @@ export class KendoGridComponent implements OnInit {
   }
 
   // addBookWindow
-  public opened = true;
+  public opened = false;
   public dataSaved = false;
 
   public close(): void {

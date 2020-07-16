@@ -1,5 +1,6 @@
-<button kendoButton *ngIf="!opened" (click)="open()">Open window</button>
-<kendo-window title="Please provide additional data" *ngIf="opened" (close)="close()" [minWidth]="250" [width]="450">
+<button kendoButton (click)="open()">新增書籍</button>
+<!-- 使用kendo-window不會有遮罩效果 -->
+<kendo-dialog title="新增書籍資料" *ngIf="opened" (close)="close()" [minWidth]="250" [width]="450">
 
   <form class="k-form" (ngSubmit)="addBook()">
     <fieldset>
@@ -35,7 +36,7 @@
         <button type="submit" class="k-button k-primary">新增書籍</button>
     </div>
   </form>
-</kendo-window>
+</kendo-dialog>
 <kendo-grid *ngIf="getBookList().length"
   [data]="gridView"
   [pageSize]="pageSize"
