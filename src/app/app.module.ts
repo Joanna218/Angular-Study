@@ -10,6 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { KendoGridModule } from "./kendo-grid/kendo-grid.module";
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
+
 
 
 
@@ -27,8 +30,10 @@ import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
     // GridModule,
     BrowserAnimationsModule,
     KendoGridModule,
+    // ButtonsModule,
     // DateInputsModule,
     // DropDownsModule
+    // DialogsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

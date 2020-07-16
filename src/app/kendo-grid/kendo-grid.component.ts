@@ -96,6 +96,24 @@ export class KendoGridComponent implements OnInit {
     // gridView reload
     this.loadItems();
   }
+
+  // addBookWindow
+  public opened = true;
+  public dataSaved = false;
+
+  public close(): void {
+    this.opened = false;
+  }
+
+  public open(): void {
+    this.opened = true;
+  }
+
+  // public submit(): void {
+  //     this.dataSaved = true;
+  //     this.close();
+  // }
+
 }
 
 // const bookGidData = bookData;

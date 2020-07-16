@@ -1,38 +1,41 @@
-<form class="k-form" (ngSubmit)="addBook()">
-  <fieldset>
-      <legend>新增書籍</legend>
-      <img src="../../assets/image/{{selectedItem.value}}.jpg" alt="" width="300" height="200">
-      <label class="k-form-field">
-        <span>書籍種類</span>
-        <kendo-dropdownlist name="selectedItem"
-          [data]="bookCategoryItems"
-          textField="text"
-          valueField="value"
-          [(ngModel)]="selectedItem"
-          (selectionChange)="selectionChange($event)"
-        >
-        </kendo-dropdownlist>
+<button kendoButton *ngIf="!opened" (click)="open()">Open window</button>
+<kendo-window title="Please provide additional data" *ngIf="opened" (close)="close()" [minWidth]="250" [width]="450">
+
+  <form class="k-form" (ngSubmit)="addBook()">
+    <fieldset>
+        <legend>新增書籍</legend>
+        <img src="../../assets/image/{{selectedItem.value}}.jpg" alt="" width="300" height="200">
+        <label class="k-form-field">
+          <span>書籍種類</span>
+          <kendo-dropdownlist name="selectedItem"
+            [data]="bookCategoryItems"
+            textField="text"
+            valueField="value"
+            [(ngModel)]="selectedItem"
+            (selectionChange)="selectionChange($event)"
+          >
+          </kendo-dropdownlist>
+        </label>
+        <label class="k-form-field">
+            <span>書籍名稱</span>
+            <input class="k-textbox" placeholder="書籍名稱..." name="bookName" [(ngModel)]="bookName"/>
+        </label>
+        <label class="k-form-field">
+          <span>書籍作者</span>
+          <input class="k-textbox" placeholder="書籍作者..." name="bookAuthor" [(ngModel)]="bookAuthor"/>
       </label>
       <label class="k-form-field">
-          <span>書籍名稱</span>
-          <input class="k-textbox" placeholder="書籍名稱..." name="bookName" [(ngModel)]="bookName"/>
+        <span>購買日期</span>
+        <kendo-datepicker [(value)]="bookBoughtDate" [format]="'yyyy-MM-dd'"></kendo-datepicker>
       </label>
-      <label class="k-form-field">
-        <span>書籍作者</span>
-        <input class="k-textbox" placeholder="書籍作者..." name="bookAuthor" [(ngModel)]="bookAuthor"/>
-    </label>
-    <label class="k-form-field">
-      <span>購買日期</span>
-      <kendo-datepicker [(value)]="bookBoughtDate" [format]="'yyyy-MM-dd'"></kendo-datepicker>
-    </label>
-  </fieldset>
+    </fieldset>
 
-  <div class="text-right">
-      <button type="button" class="k-button" >Cancel</button>
-      <button type="submit" class="k-button k-primary">新增書籍</button>
-  </div>
-</form>
-
+    <div class="text-right">
+        <button type="button" class="k-button" >Cancel</button>
+        <button type="submit" class="k-button k-primary">新增書籍</button>
+    </div>
+  </form>
+</kendo-window>
 <kendo-grid *ngIf="getBookList().length"
   [data]="gridView"
   [pageSize]="pageSize"
