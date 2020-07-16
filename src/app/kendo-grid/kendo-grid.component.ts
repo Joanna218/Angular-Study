@@ -56,7 +56,6 @@ export class KendoGridComponent implements OnInit {
   bookAuthor: string;
 
   addBook(): void {
-    debugger;
     const newBookId = this.kendoGridService.getMaxBookId() + 1;
     this.kendoGridService.setMaxBookId(newBookId);
     const addBook = new Book(newBookId, this.bookName, this.bookCategory, this.bookAuthor);

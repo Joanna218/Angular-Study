@@ -9,6 +9,8 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { KendoGridModule } from "./kendo-grid/kendo-grid.module";
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+
 
 
 
@@ -25,6 +27,7 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
     // GridModule,
     BrowserAnimationsModule,
     KendoGridModule,
+    // DateInputsModule,
     // DropDownsModule
   ],
   providers: [],

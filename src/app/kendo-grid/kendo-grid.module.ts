@@ -4,6 +4,7 @@ import { KendoGridComponent } from './kendo-grid.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { FormsModule } from '@angular/forms';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 
 
 
@@ -13,7 +14,8 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
     CommonModule,
     GridModule,
     FormsModule,
-    DropDownsModule
+    DropDownsModule,
+    DateInputsModule
   ],
   exports: [KendoGridComponent]
 })
