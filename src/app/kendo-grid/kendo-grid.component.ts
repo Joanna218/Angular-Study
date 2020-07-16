@@ -50,6 +50,9 @@ export class KendoGridComponent implements OnInit {
 
   public gridData: any[] = this.kendoGridService.initData();
 
+  // datePicker
+  public dataPickerValue: Date = new Date();
+
   // form
   bookName: string;
   bookCategory: string;

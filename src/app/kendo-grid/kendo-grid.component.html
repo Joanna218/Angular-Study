@@ -22,8 +22,8 @@
         <input class="k-textbox" placeholder="書籍作者..." name="bookAuthor" [(ngModel)]="bookAuthor"/>
     </label>
     <label class="k-form-field">
-      <span>書籍作者</span>
-      <kendo-datepicker [(value)]="value"></kendo-datepicker>
+      <span>出版日期</span>
+      <kendo-datepicker [(value)]="dataPickerValue" [format]="'yyyy-MM-dd'"></kendo-datepicker>
     </label>
   </fieldset>
 
