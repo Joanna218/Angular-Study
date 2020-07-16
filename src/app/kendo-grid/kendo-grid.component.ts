@@ -63,6 +63,10 @@ export class KendoGridComponent implements OnInit {
     this.kendoGridService.setMaxBookId(newBookId);
     const addBook = new Book(newBookId, this.bookName, this.bookCategory, this.bookAuthor, this.bookBoughtDate);
     this.kendoGridService.add(addBook);
+    // 欄位驗證
+    // 新增成功提示
+    // 清空欄位
+    this.resetAddBookFrom();
     this.loadItems();
   }
 
@@ -99,7 +103,6 @@ export class KendoGridComponent implements OnInit {
 
   // addBookWindow
   public opened = false;
-  public dataSaved = false;
 
   public close(): void {
     this.opened = false;
@@ -109,10 +112,14 @@ export class KendoGridComponent implements OnInit {
     this.opened = true;
   }
 
-  // public submit(): void {
-  //     this.dataSaved = true;
-  //     this.close();
-  // }
+  // 清空新增書籍欄位
+  resetAddBookFrom(): void {
+    this.bookName = '';
+    this.bookAuthor = '';
+    this.bookCategory = '';
+    this.selectedItem = this.bookCategoryItems[0];
+    this.bookBoughtDate = new Date();
+  }
 
 }
 
