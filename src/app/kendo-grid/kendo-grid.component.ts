@@ -50,18 +50,18 @@ export class KendoGridComponent implements OnInit {
 
   public gridData: any[] = this.kendoGridService.initData();
 
-  // datePicker
-  public dataPickerValue: Date = new Date();
 
   // form
   bookName: string;
   bookCategory: string;
   bookAuthor: string;
+  // datePicker
+  bookBoughtDate: Date = new Date();
 
   addBook(): void {
     const newBookId = this.kendoGridService.getMaxBookId() + 1;
     this.kendoGridService.setMaxBookId(newBookId);
-    const addBook = new Book(newBookId, this.bookName, this.bookCategory, this.bookAuthor);
+    const addBook = new Book(newBookId, this.bookName, this.bookCategory, this.bookAuthor, this.bookBoughtDate);
     this.kendoGridService.add(addBook);
     this.loadItems();
   }

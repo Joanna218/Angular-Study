@@ -22,8 +22,8 @@
         <input class="k-textbox" placeholder="書籍作者..." name="bookAuthor" [(ngModel)]="bookAuthor"/>
     </label>
     <label class="k-form-field">
-      <span>出版日期</span>
-      <kendo-datepicker [(value)]="dataPickerValue" [format]="'yyyy-MM-dd'"></kendo-datepicker>
+      <span>購買日期</span>
+      <kendo-datepicker [(value)]="bookBoughtDate" [format]="'yyyy-MM-dd'"></kendo-datepicker>
     </label>
   </fieldset>
 
@@ -49,6 +49,8 @@
   <kendo-grid-column field="BookCategory" title="書籍種類" width="15%">
   </kendo-grid-column>
   <kendo-grid-column field="BookAuthor" title="書籍作者" width="20%">
+  </kendo-grid-column>
+  <kendo-grid-column field="BookBoughtDate" title="書籍作者" width="20%">
   </kendo-grid-column>
   <kendo-grid-command-column title="" width="15%">
     <ng-template kendoGridCellTemplate>
