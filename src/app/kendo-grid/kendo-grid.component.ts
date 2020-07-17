@@ -70,7 +70,6 @@ export class KendoGridComponent implements OnInit {
 
   // grid切換分頁
   public pageChange(event: PageChangeEvent): void {
-    debugger;
     this.skip = event.skip;
     this.loadBookData();
   }
