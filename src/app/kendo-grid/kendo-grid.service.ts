@@ -37,6 +37,8 @@ export class KendoGridService {
   // 新增書籍
   add(book: Book): void {
     this.bookData.push(book);
+    // 警示視窗
+    alert('新增成功!');
   }
 
   // 拿到bookId最大值
@@ -57,6 +59,8 @@ export class KendoGridService {
   // 刪除書籍
   deleteBook(idx: number): void {
     this.bookData.splice(idx, 1);
+    // 警示視窗
+    alert('刪除成功!');
   }
 
   // dd
@@ -67,8 +71,8 @@ export class KendoGridService {
     this.bookData[updateBookDataIdx].BookAuthor = updateBook.BookAuthor;
     this.bookData[updateBookDataIdx].BookCategory = updateBook.BookCategory;
     this.bookData[updateBookDataIdx].BookBoughtDate = updateBook.BookBoughtDate;
-    // 重新指派新資料
-    // return this.bookData;
+    // 警示視窗
+    alert('修改成功!');
   }
 
   // 拿到預設的下拉選單資料
