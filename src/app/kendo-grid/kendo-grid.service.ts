@@ -23,6 +23,8 @@ export class KendoGridService {
     { text: "應用系統整合", value: "system" },
     { text: "語言", value: "language" }
   ];
+
+
   // 預設書籍最大值為找原始資料
   maxBookId: number = Math.max(...bookData.map(item => item.BookId));
 
@@ -67,5 +69,20 @@ export class KendoGridService {
     this.bookData[updateBookDataIdx].BookBoughtDate = updateBook.BookBoughtDate;
     // 重新指派新資料
     // return this.bookData;
+  }
+
+  // 拿到預設的下拉選單資料
+  getInitBookCategoryItem(): any{
+    return this.bookCategoryItems[0];
+  }
+
+  // 拿到特定的下拉選單資料
+  filterBookCategoryItems(filterData): any {
+    return this.bookCategoryItems.filter(item => item.text === filterData);
+  }
+
+  // 拿到全部的下拉選單資料
+  getAllBookCategoryItem(): any {
+    return this.bookCategoryItems;
   }
 }

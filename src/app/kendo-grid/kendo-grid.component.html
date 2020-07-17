@@ -8,7 +8,7 @@
         <label class="k-form-field">
           <span>書籍種類</span>
           <kendo-dropdownlist name="selectedBookCategoryItem"
-            [data]="bookCategoryItems"
+            [data]="getAllBookCategory()"
             textField="text"
             valueField="value"
             [(ngModel)]="selectedBookCategoryItem"

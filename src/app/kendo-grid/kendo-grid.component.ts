@@ -6,13 +6,6 @@ import { Book } from './book.model';
 import { KendoGridService } from './kendo-grid.service';
 import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 
-
-interface dropDown {
-  text: string,
-  value: string
-}
-
-
 @Component({
   selector: 'app-kendo-grid',
   templateUrl: './kendo-grid.component.html',
@@ -29,16 +22,8 @@ export class KendoGridComponent implements OnInit {
   public bookDialogMode = false;
   // 判別現在的操作模式(新增:true or 修改:false)
   public isAddBookMode = true;
-  // 書籍類別dropDownList
-  public bookCategoryItems: Array<dropDown> = [
-    { text: "資料庫", value: "database" },
-    { text: "網際網路", value: "internet" },
-    { text: "家庭保健", value: "home" },
-    { text: "應用系統整合", value: "system" },
-    { text: "語言", value: "language" }
-  ];
   // 類別下拉選單被選到的整包資料，預設為第一筆資料
-  public selectedBookCategoryItem: dropDown = this.bookCategoryItems[0];
+  public selectedBookCategoryItem: any = this.kendoGridService.getInitBookCategoryItem();
   // 類別下選單改變
   public changeBookCategory(data: any): void {
     this.bookCategory = data.text;
@@ -98,7 +83,7 @@ export class KendoGridComponent implements OnInit {
     // 找到該筆資料的index
     const deleteDataItemIdx = this.gridData.indexOf(deleteData.dataItem);
     // 刪除該筆資料
-    this.gridData.splice(deleteDataItemIdx, 1);
+    this.kendoGridService.deleteBook(deleteDataItemIdx);
     // gridView reload
     this.loadBookData();
   }
@@ -108,7 +93,7 @@ export class KendoGridComponent implements OnInit {
     this.bookId = editBookData.BookId;
     this.bookName = editBookData.BookName;
     this.bookAuthor = editBookData.BookAuthor;
-    const bookCategoryData = this.bookCategoryItems.filter(item => item.text === editBookData.BookCategory);
+    const bookCategoryData = this.kendoGridService.filterBookCategoryItems(editBookData.BookCategory);
     this.selectedBookCategoryItem = bookCategoryData[0];
     this.bookBoughtDate = new Date(editBookData.BookBoughtDate);
     this.isAddBookMode = false;
@@ -128,7 +113,7 @@ export class KendoGridComponent implements OnInit {
     this.bookName = '';
     this.bookAuthor = '';
     this.bookCategory = '';
-    this.selectedBookCategoryItem = this.bookCategoryItems[0];
+    this.selectedBookCategoryItem = this.kendoGridService.getInitBookCategoryItem();
     this.bookBoughtDate = new Date();
   }
   // 新增書籍視窗
@@ -143,5 +128,9 @@ export class KendoGridComponent implements OnInit {
   }
   private openBookDialog(): void {
     this.bookDialogMode = true;
+  }
+
+  getAllBookCategory(): void {
+    return this.kendoGridService.getAllBookCategoryItem();
   }
 }
