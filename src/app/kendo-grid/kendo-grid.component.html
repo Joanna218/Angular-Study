@@ -1,10 +1,9 @@
-<button kendoButton (click)="open()">新增書籍</button>
+<button kendoButton (click)="addBookDialog()">新增書籍</button>
 <!-- 使用kendo-window不會有遮罩效果 -->
-<kendo-dialog title="新增書籍資料" *ngIf="opened" (close)="close()" [minWidth]="250" [width]="450">
+<kendo-dialog [title]="!toggle? '新增書籍資料' : '修改書籍資料'" *ngIf="opened" (close)="close()" [minWidth]="250" [width]="450">
 
   <form class="k-form" (ngSubmit)="addBook()">
     <fieldset>
-        <legend>新增書籍</legend>
         <img src="../../assets/image/{{selectedItem.value}}.jpg" alt="" width="300" height="200">
         <label class="k-form-field">
           <span>書籍種類</span>
@@ -26,14 +25,15 @@
           <input class="k-textbox" placeholder="書籍作者..." name="bookAuthor" [(ngModel)]="bookAuthor"/>
       </label>
       <label class="k-form-field">
-        <span>購買日期</span>
+        <span>購書日期</span>
         <kendo-datepicker [(value)]="bookBoughtDate" [format]="'yyyy-MM-dd'"></kendo-datepicker>
       </label>
     </fieldset>
 
     <div class="text-right">
         <button type="button" class="k-button" >Cancel</button>
-        <button type="submit" class="k-button k-primary">新增書籍</button>
+        <button *ngIf="!toggle" type="submit" class="k-button k-primary">新增書籍</button>
+        <button *ngIf="toggle" type="submit" class="k-button k-primary">修改書籍</button>
     </div>
   </form>
 </kendo-dialog>
@@ -55,7 +55,7 @@
   </kendo-grid-column>
   <kendo-grid-column field="BookAuthor" title="書籍作者" width="20%">
   </kendo-grid-column>
-  <kendo-grid-column field="BookBoughtDate" title="書籍作者" width="20%">
+  <kendo-grid-column field="BookBoughtDate" title="購書日期" width="20%">
   </kendo-grid-column>
   <kendo-grid-command-column title="" width="15%">
     <ng-template kendoGridCellTemplate>

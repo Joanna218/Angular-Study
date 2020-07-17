@@ -107,12 +107,19 @@ export class KendoGridComponent implements OnInit {
     this.bookAuthor = editBookData.BookAuthor;
     const bookCategoryData = this.bookCategoryItems.filter(item => item.text === editBookData.BookCategory);
     this.selectedItem = bookCategoryData[0];
+    // 處理購買日期，從字串轉成date綁上控制向
+    const replaceDateString = editBookData.BookBoughtDate.replace(/-/g, ',');
+    // const [yyyy, MM, dd] = replaceDateString.split(',');
+    // this.bookBoughtDate = new Date(parseInt(yyyy, 10), parseInt(MM, 10), parseInt(dd, 10));
     // this.bookBoughtDate = editBookData.BookBoughtDate;
+    this.bookBoughtDate = new Date(editBookData.BookBoughtDate);
+    this.toggle = true;
     this.open();
   }
 
   // addBookWindow
   public opened = false;
+  public toggle = false;
 
   public close(): void {
     this.opened = false;
@@ -131,6 +138,11 @@ export class KendoGridComponent implements OnInit {
     this.bookBoughtDate = new Date();
   }
 
+  addBookDialog(): void {
+    this.resetAddBookFrom();
+    this.toggle = false;
+    this.open();
+  }
 }
 
 // const bookGidData = bookData;
