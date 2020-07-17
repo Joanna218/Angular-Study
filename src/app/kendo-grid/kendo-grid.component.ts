@@ -5,6 +5,7 @@ import { Book } from './book.model';
 // service
 import { KendoGridService } from './kendo-grid.service';
 import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
+import { process } from '@progress/kendo-data-query';
 
 @Component({
   selector: 'app-kendo-grid',
@@ -15,7 +16,7 @@ import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 })
 export class KendoGridComponent implements OnInit {
   // grid雙向綁定資料
-  public gridView: GridDataResult;
+  public gridView: any;
   public pageSize = 10;
   public skip = 0;
   // bookDialog預設為關著
@@ -69,6 +70,7 @@ export class KendoGridComponent implements OnInit {
 
   // grid切換分頁
   public pageChange(event: PageChangeEvent): void {
+    debugger;
     this.skip = event.skip;
     this.loadBookData();
   }
@@ -134,5 +136,38 @@ export class KendoGridComponent implements OnInit {
   // 拿到全部書籍類別
   getAllBookCategory(): void {
     return this.kendoGridService.getAllBookCategoryItem();
+  }
+
+  public filterGridData(inputValue: string): void {
+    const filterGridData = process(this.kendoGridService.bookData, {
+        filter: {
+            logic: "or",
+            filters: [
+                {
+                    field: 'BookName',
+                    operator: 'contains',
+                    value: inputValue
+                },
+                {
+                    field: 'BookCategory',
+                    operator: 'contains',
+                    value: inputValue
+                },
+                {
+                    field: 'BookAuthor',
+                    operator: 'contains',
+                    value: inputValue
+                },
+                {
+                    field: 'BookBoughtDate',
+                    operator: 'contains',
+                    value: inputValue
+                }
+            ],
+        }
+    }).data;
+    this.gridData = filterGridData;
+    this.loadBookData();
+
   }
 }

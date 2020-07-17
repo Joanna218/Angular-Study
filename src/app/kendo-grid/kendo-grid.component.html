@@ -1,4 +1,4 @@
-<button kendoButton (click)="openAddBookDialog()">新增書籍</button>
+
 <!-- 使用kendo-window不會有遮罩效果 -->
 <kendo-dialog [title]="isAddBookMode? '新增書籍資料' : '修改書籍資料'" *ngIf="bookDialogMode" (close)="closeBookDialog()" [minWidth]="250" [width]="450">
 
@@ -47,6 +47,10 @@
   (remove)="removeHandler($event)"
   (edit)="editHandler($event)"
   >
+  <ng-template kendoGridToolbarTemplate>
+    <input placeholder="Search in all columns..." kendoTextBox (input)="filterGridData($event.target.value)"/>
+    <button kendoButton (click)="openAddBookDialog()">新增書籍</button>
+</ng-template>
   <kendo-grid-column field="BookId" title="書籍編號" width="10%" filter="numeric">
   </kendo-grid-column>
   <kendo-grid-column field="BookName" title="書籍名稱" width="45%">
