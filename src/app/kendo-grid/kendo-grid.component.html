@@ -2,7 +2,7 @@
 <!-- 使用kendo-window不會有遮罩效果 -->
 <kendo-dialog [title]="isAddBookMode? '新增書籍資料' : '修改書籍資料'" *ngIf="bookDialogMode" (close)="closeBookDialog()" [minWidth]="250" [width]="450">
 
-  <form class="k-form" (ngSubmit)="addBook()">
+  <form class="k-form" (ngSubmit)="isAddBookMode? addBook(): updateBook()">
     <fieldset>
         <img src="../../assets/image/{{selectedBookCategoryItem.value}}.jpg" alt="" width="300" height="200">
         <label class="k-form-field">
@@ -59,7 +59,7 @@
   </kendo-grid-column>
   <kendo-grid-command-column title="" width="15%">
     <ng-template kendoGridCellTemplate>
-        <button kendoGridEditCommand  class="k-primary">修改</button>
+        <button kendoGridEditCommand class="k-primary">修改</button>
         <button kendoGridRemoveCommand>刪除</button>
     </ng-template>
 </kendo-grid-command-column>

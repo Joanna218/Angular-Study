@@ -53,6 +53,7 @@ export class KendoGridComponent implements OnInit {
   // datePicker
   bookBoughtDate: Date = new Date();
   // tslint:disable-next-line: no-trailing-whitespace
+  private bookId: number;
 
   constructor(private kendoGridService: KendoGridService) {
     this.loadBookData();
@@ -101,9 +102,10 @@ export class KendoGridComponent implements OnInit {
     // gridView reload
     this.loadBookData();
   }
-  // 編輯書籍Handler
+  // 編輯書籍Handler(跳出編輯bookDialog)
   public editHandler(editData: any): void {
     const editBookData = editData.dataItem;
+    this.bookId = editBookData.BookId;
     this.bookName = editBookData.BookName;
     this.bookAuthor = editBookData.BookAuthor;
     const bookCategoryData = this.bookCategoryItems.filter(item => item.text === editBookData.BookCategory);
@@ -113,6 +115,13 @@ export class KendoGridComponent implements OnInit {
     this.openBookDialog();
   }
 
+  // 編輯書籍
+  public updateBook(): void {
+    const updateBook = new Book(this.bookId, this.bookName, this.bookCategory, this.bookAuthor, this.bookBoughtDate);
+    this.kendoGridService.updateBook(updateBook);
+    this.loadBookData();
+    this.closeBookDialog();
+  }
 
   // 清空視窗中所有欄位
   private resetAddBookFrom(): void {
