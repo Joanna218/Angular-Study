@@ -72,7 +72,7 @@ export class KendoGridService {
   }
 
   // 拿到預設的下拉選單資料
-  getInitBookCategoryItem(): any{
+  getDefaultBookCategoryItem(): any{
     return this.bookCategoryItems[0];
   }
 

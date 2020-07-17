@@ -23,7 +23,7 @@ export class KendoGridComponent implements OnInit {
   // 判別現在的操作模式(新增:true or 修改:false)
   public isAddBookMode = true;
   // 類別下拉選單被選到的整包資料，預設為第一筆資料
-  public selectedBookCategoryItem: any = this.kendoGridService.getInitBookCategoryItem();
+  public selectedBookCategoryItem: any = this.kendoGridService.getDefaultBookCategoryItem();
   // 類別下選單改變
   public changeBookCategory(data: any): void {
     this.bookCategory = data.text;
@@ -37,7 +37,6 @@ export class KendoGridComponent implements OnInit {
   bookAuthor: string;
   // datePicker
   bookBoughtDate: Date = new Date();
-  // tslint:disable-next-line: no-trailing-whitespace
   private bookId: number;
 
   constructor(private kendoGridService: KendoGridService) {
@@ -52,6 +51,9 @@ export class KendoGridComponent implements OnInit {
   public addBook(): void {
     const newBookId = this.kendoGridService.getMaxBookId() + 1;
     this.kendoGridService.setMaxBookId(newBookId);
+    if (this.bookCategory == '') {
+      this.bookCategory = '資料庫';
+    }
     const addBook = new Book(newBookId, this.bookName, this.bookCategory, this.bookAuthor, this.bookBoughtDate);
     this.kendoGridService.add(addBook);
     // 欄位驗證
@@ -113,7 +115,7 @@ export class KendoGridComponent implements OnInit {
     this.bookName = '';
     this.bookAuthor = '';
     this.bookCategory = '';
-    this.selectedBookCategoryItem = this.kendoGridService.getInitBookCategoryItem();
+    this.selectedBookCategoryItem = this.kendoGridService.getDefaultBookCategoryItem();
     this.bookBoughtDate = new Date();
   }
   // 新增書籍視窗
@@ -129,7 +131,7 @@ export class KendoGridComponent implements OnInit {
   private openBookDialog(): void {
     this.bookDialogMode = true;
   }
-
+  // 拿到全部書籍類別
   getAllBookCategory(): void {
     return this.kendoGridService.getAllBookCategoryItem();
   }
