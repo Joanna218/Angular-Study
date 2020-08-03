@@ -63,7 +63,7 @@ export class KendoGridService {
     alert('刪除成功!');
   }
 
-  // dd
+  // 更新書籍資料
   updateBook(updateBook: any): void {
     // 找到原始資料該筆位置
     const updateBookDataIdx = this.bookData.findIndex(item => item.BookId === updateBook.BookId);
